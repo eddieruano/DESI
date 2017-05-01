@@ -1,0 +1,259 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "RunDMC_Module.py",
+			"settings":
+			{
+				"buffer_size": 8537,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "#!/usr/bin/env python\n\"\"\"\nDESI Main Module\n\"\"\"\n\n### IMPORT MODULES ###\nimport os\nimport time\n\n\n\n### MAIN CALL ###\nif __name__ == \"__main__\":\n    main()\n",
+			"file": "RMC.py",
+			"file_size": 0,
+			"file_write_time": 131381107450000000,
+			"settings":
+			{
+				"buffer_size": 152,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 368.0,
+		"last_filter": "ins",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 597.0
+	},
+	"console":
+	{
+		"height": 145.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/eddieruano/Desktop/DESI"
+	],
+	"file_history":
+	[
+		"/Users/eddieruano/Desktop/KiteServer/insert.js",
+		"/Users/eddieruano/Desktop/DESI/Sensor Repositories/DESI/sonicFrontEnd.py",
+		"/Users/eddieruano/Desktop/Transfer/Desk/Arduino/RF24/pyRF24/setup.py",
+		"/Users/eddieruano/Desktop/DESI/Sensor Repositories/DESI/simpletest.py",
+		"/Users/eddieruano/Desktop/Transfer/Desk/Arduino/RF24/tests/pingpair_blocking/runtest.py",
+		"/Users/eddieruano/Desktop/Phantom/Vault/CALPOLY/Year 1/CPE101/Lab07/script.py",
+		"/Users/eddieruano/Desktop/OperationCloudMail/CloudMailServer/README.md",
+		"/Users/eddieruano/Desktop/OperationCloudMail/CloudMailServer/CONTRIBUTING.md",
+		"/Users/eddieruano/Desktop/dow"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "RunDMC_Module.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 8537,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8535,
+								8481
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3313.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "RMC.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 152,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								94,
+								94
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "DESI.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
