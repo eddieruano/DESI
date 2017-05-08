@@ -10,10 +10,10 @@ Basic DESI Driver for Prototyping
 import RPi.GPIO as GPIO
 import time
 # #Buttons# #
-G_INSTART = 2
-G_INSTOP = 3
-G_INSLOW = 17
-G_INMED = 27
+G_INSTART = 17
+G_INSTOP = 27
+G_INSLOW = 16
+G_INMED = 20
 G_INFAST = 22
 # #Relays# #
 GR_START = 5
@@ -26,33 +26,36 @@ GR_01 = 26
 GR_02 = 14
 GR_03 = 15
 # #BOUNCE IN MS# #
-bounceTime = 300
+bounceTime = 700
 
 
 ### MAIN PROGRAM START ###
 def main():
-	GPIO.setmode(GPIO.BCM)
+   GPIO.setmode(GPIO.BCM)
+   GPIO.cleanup()
+   initializeButtons(G_INSTART, G_INSTOP)
+   #initializeRelay(GR_START, GR_OFF, GR_PAUSE, GR_ENTER, GR_00, GR_01, GR_02, GR_03)
 
-	initializeButtons(G_INSTART, G_INSTOP)
-	initializeRelay(GR_START, GR_OFF, GR_PAUSE, GR_ENTER, GR_00, GR_01, GR_02, GR_03)
+   GPIO.add_event_detect(G_INSTART, GPIO.FALLING, performStart, bounceTime)
+   GPIO.add_event_detect(G_INSTOP, GPIO.FALLING, performStop, bounceTime)
 
-	GPIO.add_event_detect(G_INSTART, GPIO.FALLING, performStart, bounceTime)
-	GPIO.add_event_detect(G_INSTOP, GPIO.FALLING, performStop, bounceTime)
-
-	activeFlag = True
-	print("In Main Loop:\n")
-	while activeFlag:
-		
+   activeFlag = True
+   print("In Main Loop:\n")
+   while activeFlag:
+      activeFlag = True
+   GPIO.cleanup()
 
 def performStart(channel):
-	GPIO.output(GR_START, GPIO.LOW)
+   print("start")
+   #GPIO.output(GR_START, GPIO.LOW)
    time.sleep(0.1)
-   GPIO.output(GR_START GPIO.HIGH)
+   #GPIO.output(GR_START, GPIO.HIGH)
    time.sleep(0.1)
 def performStop(channel):
-	GPIO.output(GR_STOP, GPIO.LOW)
+   print("stop")
+   #GPIO.output(GR_PAUSE, GPIO.LOW)
    time.sleep(0.1)
-   GPIO.output(GR_STOP GPIO.HIGH)
+   #GPIO.output(GR_PAUSE, GPIO.HIGH)
    time.sleep(0.1)
 
 def initializeButtons(start, stop):
