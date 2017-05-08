@@ -12,15 +12,13 @@ import time
 import RPi.GPIO as GPIO
 
 
-class proxSensor:
+class proxSensor(object):
     """ Begin proxSensor Class Structure """
     def __init__(self, name, trigger, echo):
         self.name = name
         self.trigger = trigger
         self.echo = echo
-        print(self.proxInitSensor(self.trigger, self.echo))
-
-    def proxInitSensor(GPIOTrigger, GPIOEcho):
+    def proxInitSensor(self, GPIOTrigger, GPIOEcho):
         # Set GPIO Input/Output Direction
         # Trigger is an output
         theTime = time.ctime()
@@ -32,6 +30,7 @@ class proxSensor:
 
     def proxQueryDist(self):
         # set Trigger to HIGH
+        print(self.trigger)
         GPIO.output(self.trigger, True)
         # set Trigger after 0.01ms to LOW
         time.sleep(0.00001)
@@ -49,10 +48,9 @@ class proxSensor:
         # multiply with the sonic speed (34300 cm/s)
         # & divide by 2, because there and back
         distance = (TimeElapsed * 34300) / 2
-        self.proxCleanUp()
         return distance
 
-    def proxCleanUp():
+    def proxCleanUp(self):
         # Reset these GPIO Pins after this script runs
         GPIO.cleanup()
         return "Success"
