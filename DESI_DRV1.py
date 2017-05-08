@@ -12,8 +12,8 @@ import time
 # #Buttons# #
 G_INSTART = 17
 G_INPAUSE= 27
-G_INSLOW = 22
-G_INMED = 20
+G_INSLOW = 5
+G_INMED = 6
 #G_INFAST = 16
 # #Relays# #
 GR_START = 20
@@ -26,21 +26,21 @@ GR_01 = 24
 GR_02 = 16
 #GR_03 = 15
 # #BOUNCE IN MS# #
-bounceTime = 700
+bounceTime = 1000
 # #STATE# #
-state = "speed0"
+state = "Speed0"
 
 
 ### MAIN PROGRAM START ###
 def main():
    GPIO.setmode(GPIO.BCM)
-   GPIO.cleanup()
-   initializeButtons(G_INSTART, G_INSTOP)
+   initializeButtons(G_INSTART, G_INPAUSE)
    initializeKnob(G_INSLOW, G_INMED)
-   initializeRelay(GR_START, GR_PAUSE, GR_ENTER, GR_01, GR_02)
+   initializeRelay(GR_START, GR_PAUSE, GR_ENTER, GR_01, GR_02) 
 
    GPIO.add_event_detect(G_INSTART, GPIO.FALLING, performStart, bounceTime)
    GPIO.add_event_detect(G_INPAUSE, GPIO.FALLING, performStop, bounceTime)
+
 
    GPIO.add_event_detect(G_INSLOW, GPIO.FALLING, performS1, bounceTime)
    GPIO.add_event_detect(G_INMED, GPIO.FALLING, performS2, bounceTime)
@@ -48,71 +48,85 @@ def main():
    activeFlag = True
    print("In Main Loop:\n")
    while activeFlag:
-      if (state == "speed1"):
-         
-      elif (state == "speed2"):
-         
-
-   GPIO.cleanup()
+      activeFlag = True
+      #if (state == "speed1"):
+      #elif (state == "speed2"):
+   #Should not get here
 
 def performS1(channel):
-   print("Speed1")
-   state = "Speed1"
-   GPIO.remove_event_detect(G_INSLOW)
-   GPIO.add_event_detect(G_INMED, GPIO.FALLING, performS2, bounceTime)
+   global state
+   if state != "Speed1":
+      # Trigger 1 twice
+      GPIO.output(GR_01, GPIO.LOW)
+      time.sleep(0.1)
+      GPIO.output(GR_01, GPIO.HIGH)
+      time.sleep(0.1)
+      GPIO.output(GR_01, GPIO.LOW)
+      time.sleep(0.1)
+      GPIO.output(GR_01, GPIO.HIGH)
+      time.sleep(0.1)
+      #enter
+      GPIO.output(GR_ENTER, GPIO.LOW)
+      time.sleep(0.1)
+      GPIO.output(GR_ENTER, GPIO.HIGH)
+      time.sleep(0.1)
+      global state
+      state = "Speed1"
+      print(state)
 def performS2(channel):
-   print("Speed2")
-   state = "Speed2"
-   GPIO.remove_event_detect(G_INMED)
-   GPIO.add_event_detect(G_INSLOW, GPIO.FALLING, performS1, bounceTime)
-
+   global state
+   if state != "Speed2":
+      # Trigger 1 twice
+      GPIO.output(GR_02, GPIO.LOW)
+      time.sleep(0.1)
+      GPIO.output(GR_02, GPIO.HIGH)
+      time.sleep(0.1)
+      GPIO.output(GR_02, GPIO.LOW)
+      time.sleep(0.1)
+      GPIO.output(GR_02, GPIO.HIGH)
+      time.sleep(0.1)
+      #enter
+      GPIO.output(GR_ENTER, GPIO.LOW)
+      time.sleep(0.1)
+      GPIO.output(GR_ENTER, GPIO.HIGH)
+      time.sleep(0.1)
+      #state variable
+      global state
+      state = "Speed2"
+      print(state)
 def performStart(channel):
    print("start")
    GPIO.output(GR_START, GPIO.LOW)
    time.sleep(0.1)
    GPIO.output(GR_START, GPIO.HIGH)
    time.sleep(0.1)
-   # Now press enter
    GPIO.output(GR_ENTER, GPIO.LOW)
    time.sleep(0.1)
    GPIO.output(GR_ENTER, GPIO.HIGH)
    time.sleep(0.1)
-   # done
 def performStop(channel):
    print("stop")
    GPIO.output(GR_PAUSE, GPIO.LOW)
    time.sleep(0.1)
    GPIO.output(GR_PAUSE, GPIO.HIGH)
    time.sleep(0.1)
-   #done
-
 def initializeButtons(start, pause):
    GPIO.setup(start, GPIO.IN, pull_up_down=GPIO.PUD_UP)
    GPIO.setup(pause, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 def initializeKnob(speed1, speed2):
    GPIO.setup(speed1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
    GPIO.setup(speed2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
 def initializeRelay(start, pause, enter, k1, k2):
    GPIO.setup(start, GPIO.OUT)
-   #GPIO.setup(stop, GPIO.OUT)
    GPIO.setup(pause, GPIO.OUT)
    GPIO.setup(enter, GPIO.OUT)
-   #GPIO.setup(k0, GPIO.OUT)
    GPIO.setup(k1, GPIO.OUT)
    GPIO.setup(k2, GPIO.OUT)
-   #GPIO.setup(k3, GPIO.OUT)
-   ##
-   ## 
-   ##
    GPIO.output(start, GPIO.HIGH)
-   #GPIO.output(stop, GPIO.HIGH)
    GPIO.output(pause, GPIO.HIGH)
    GPIO.output(enter, GPIO.HIGH)
-   #GPIO.output(k0, GPIO.HIGH)
    GPIO.output(k1, GPIO.HIGH)
    GPIO.output(k2, GPIO.HIGH)
-   #GPIO.output(k3, GPIO.HIGH)
    print("Relays Complete.\n")
 
 ###MAIN CALL ###
