@@ -14,10 +14,6 @@ def main():
     # Begin Sensor Read Code Debugger #
     #Set Mode on GPIO Pins
     GPIO.setmode(GPIO.BCM)
-    # Power Setup
-#    GPIO_POWER = 17
-#    GPIO.setup(GPIO_POWER, GPIO.OUT)
-#    GPIO.output(GPIO_POWER, GPIO.LOW)
     # Set up Start/Stop Button functionality
     GPIO_START = 13
     GPIO_STOP = 19
@@ -174,10 +170,6 @@ def renderDisplay(stdscr):
     touchBox.addstr(1, 21, "Cap Touch Status")
     updateView(stdscr, touchBox)
     # Create Serial Box
-    #serialBox = stdscr.subwin(5, 76, 35, 1)
-    #serialBox.box()
-    #serialBox.addstr(1, 5, "Comm Display: Not Enabled")
-    #updateView(stdscr, serialBox)
 
 def queryDistance( trigger, echo):
     # set Trigger to HIGH
