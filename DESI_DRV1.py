@@ -12,9 +12,9 @@ import time
 # #Buttons# #
 G_INSTART = 17
 G_INSTOP = 27
-G_INSLOW = 16
+G_INSLOW = 22
 G_INMED = 20
-G_INFAST = 22
+G_INFAST = 16
 # #Relays# #
 GR_START = 5
 GR_PAUSE = 6
@@ -41,20 +41,17 @@ def main():
 
    GPIO.add_event_detect(G_INSTART, GPIO.FALLING, performStart, bounceTime)
    GPIO.add_event_detect(G_INSTOP, GPIO.FALLING, performStop, bounceTime)
-   GPIO.add_event_detect(G_INSLOW, GPIO.FALLING, performS1, bounceTime)
 
+   GPIO.add_event_detect(G_INSLOW, GPIO.FALLING, performS1, bounceTime)
+   GPIO.add_event_detect(G_INMED, GPIO.FALLING, performS2, bounceTime)
 
    activeFlag = True
    print("In Main Loop:\n")
    while activeFlag:
       if (state == "speed1"):
          GPIO.remove_event_detect(G_INSLOW)
-           GPIO.add_event_detect(G_INMED, GPIO.FALLING, performS2, bounceTime)
       elif (state == "speed2"):
-         GPIO.remove_event_detect(G_INSLOW)
-         GPIO.add_event_detect(G_INSLOW, GPIO.FALLING, performS1, bounceTime)
-      else
-         print("error")
+         GPIO.remove_event_detect(G_INMED)
 
    GPIO.cleanup()
 
@@ -62,8 +59,8 @@ def performS1(channel):
    print("Speed1")
    state = "Speed1"
 def performS2(channel):
-   print("Speed1")
-   state = "Speed1"
+   print("Speed2")
+   state = "Speed2"
 def performStart(channel):
    print("start")
    #GPIO.output(GR_START, GPIO.LOW)
