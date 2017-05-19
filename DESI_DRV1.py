@@ -2,7 +2,7 @@
 # @Author: Eddie Ruano
 # @Date:   2017-05-01 05:14:54
 # @Last Modified by:   Eddie Ruano
-# @Last Modified time: 2017-05-18 19:07:34
+# @Last Modified time: 2017-05-18 19:08:37
 
 """
 Basic DESI Driver for Prototyping
@@ -44,10 +44,10 @@ def main():
    GPIO.add_event_detect(G_INSTART, GPIO.FALLING, performStart, bounceTime)
    GPIO.add_event_detect(G_INPAUSE, GPIO.FALLING, performStop, bounceTime)
 
-   GPIO.add_event_detect(G_INSLOW, GPIO.FALLING, performS1, bounceTime)
-   GPIO.add_event_detect(G_INSLOW, GPIO.FALLING, performS1, bounceTime)
-   GPIO.add_event_detect(G_INMED, GPIO.FALLING, performS2, bounceTime)
-   GPIO.add_event_detect(G_INFAST, GPIO.FALLING, performS3, bounceTime)
+   GPIO.add_event_detect(G_INSLOW, GPIO.FALLING, performS0, bounceTime)
+   GPIO.add_event_detect(G_INMED, GPIO.FALLING, performS1, bounceTime)
+   GPIO.add_event_detect(G_INFAST, GPIO.FALLING, performS2, bounceTime)
+   GPIO.add_event_detect(G_INFASTER, GPIO.FALLING, performS3, bounceTime)
 
    activeFlag = True
    print("In Main Loop:\n")
