@@ -2,7 +2,7 @@
 # @Author: Eddie Ruano
 # @Date:   2017-05-01 05:14:54
 # @Last Modified by:   Eddie Ruano
-# @Last Modified time: 2017-05-18 17:38:18
+# @Last Modified time: 2017-05-18 18:34:32
 
 """
 Basic DESI Driver for Prototyping
@@ -12,11 +12,11 @@ import time
 # #Buttons# #
 G_INSTART = 27
 G_INPAUSE= 17
-G_INSLOW = 22
-G_INMED = 5
-G_INFAST = 6
-G_INFASTER = 13
-G_INFASTEST = 19
+G_INSLOW = 5
+G_INMED = 6
+G_INFAST = 13
+G_INFASTER = 19
+G_INFASTEST = 26
 # #Relays# #
 GR_START = 20
 GR_PAUSE = 21
