@@ -2,7 +2,7 @@
 # @Author: Eddie Ruano
 # @Date:   2017-05-01 05:14:54
 # @Last Modified by:   Eddie Ruano
-# @Last Modified time: 2017-05-08 08:23:59
+# @Last Modified time: 2017-05-18 17:04:06
 
 """
 Basic DESI Driver for Prototyping
@@ -12,8 +12,8 @@ import time
 # #Buttons# #
 G_INSTART = 17
 G_INPAUSE= 27
-G_INSLOW = 5
-G_INMED = 6
+G_INSLOW = 22
+G_INMED = 5
 #G_INFAST = 16
 # #Relays# #
 GR_START = 20
@@ -113,9 +113,11 @@ def performStop(channel):
 def initializeButtons(start, pause):
    GPIO.setup(start, GPIO.IN, pull_up_down=GPIO.PUD_UP)
    GPIO.setup(pause, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+   print("Buttons Complete.\n")
 def initializeKnob(speed1, speed2):
    GPIO.setup(speed1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
    GPIO.setup(speed2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+   print("Knob Complete.\n")
 def initializeRelay(start, pause, enter, k1, k2):
    GPIO.setup(start, GPIO.OUT)
    GPIO.setup(pause, GPIO.OUT)

@@ -12,6 +12,12 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "/Users/eddieruano/Desktop/GDIBOT/bot-tutorial-nodejs"
+		},
+		{
+			"path": "/Users/eddieruano/Desktop/GDIBOT/GDIBOT"
 		}
 	]
 }
