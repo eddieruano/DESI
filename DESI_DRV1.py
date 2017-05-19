@@ -2,7 +2,7 @@
 # @Author: Eddie Ruano
 # @Date:   2017-05-01 05:14:54
 # @Last Modified by:   Eddie Ruano
-# @Last Modified time: 2017-05-18 17:36:02
+# @Last Modified time: 2017-05-18 17:38:18
 
 """
 Basic DESI Driver for Prototyping
@@ -10,16 +10,16 @@ Basic DESI Driver for Prototyping
 import RPi.GPIO as GPIO
 import time
 # #Buttons# #
-G_INSTART = 17
-G_INPAUSE= 27
+G_INSTART = 27
+G_INPAUSE= 17
 G_INSLOW = 22
 G_INMED = 5
 G_INFAST = 6
 G_INFASTER = 13
 G_INFASTEST = 19
 # #Relays# #
-GR_START = 21
-GR_PAUSE = 20
+GR_START = 20
+GR_PAUSE = 21
 #GR_OFF = 6
 GR_ENTER = 23
 # #Keypad Relays# #
