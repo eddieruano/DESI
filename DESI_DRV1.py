@@ -2,15 +2,15 @@
 # @Author: Eddie Ruano
 # @Date:   2017-05-01 05:14:54
 # @Last Modified by:   Eddie Ruano
-# @Last Modified time: 2017-05-23 23:15:45
+# @Last Modified time: 2017-05-24 00:06:22
 
 """
 Basic DESI Driver for Prototyping
 """
-import sys
+#import sys
 import RPi.GPIO as GPIO
 import time
-import Adafruit_MPR121.MPR121 as MPR121
+#import Adafruit_MPR121.MPR121 as MPR121
 # #Buttons# #
 G_INSTART = 10
 G_INPAUSE= 9
@@ -44,13 +44,11 @@ state = "SpeedA"
 #CAP_HANDLE = 2
 #MAIN_CONTACT = False
 
-
 # Initialize communication with MPR121 using default I2C bus of device, and
 # default I2C address (0x5A).
 #if not cap.begin():
 #    print('Error initializing MPR121.  Check Wiring.')
 #    sys.exit(1)
-
 
 ### MAIN PROGRAM START ###
 def main():
