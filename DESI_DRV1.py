@@ -2,7 +2,7 @@
 # @Author: Eddie Ruano
 # @Date:   2017-05-01 05:14:54
 # @Last Modified by:   Eddie Ruano
-# @Last Modified time: 2017-05-24 01:05:29
+# @Last Modified time: 2017-05-30 14:29:34
 
 """
 Basic DESI Driver for Prototyping
@@ -36,19 +36,6 @@ GR_05 = 12
 bounceTime = 1000
 # #STATE# #
 state = "SpeedA"
-
-# Create MPR121 instance #
-#cap = MPR121.MPR121()
-
-#CAP_RAIL = 1
-#CAP_HANDLE = 2
-#MAIN_CONTACT = False
-
-# Initialize communication with MPR121 using default I2C bus of device, and
-# default I2C address (0x5A).
-#if not cap.begin():
-#    print('Error initializing MPR121.  Check Wiring.')
-#    sys.exit(1)
 
 ### MAIN PROGRAM START ###
 def main():
@@ -180,6 +167,7 @@ def performS4(channel):
       print(state)
 def performStart(channel):
    print("start")
+   print(channel)
    GPIO.output(GR_START, GPIO.LOW)
    time.sleep(0.1)
    GPIO.output(GR_START, GPIO.HIGH)
