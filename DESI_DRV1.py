@@ -2,7 +2,7 @@
 # @Author: Eddie Ruano
 # @Date:   2017-05-01 05:14:54
 # @Last Modified by:   Eddie Ruano
-# @Last Modified time: 2017-05-30 14:29:34
+# @Last Modified time: 2017-05-30 14:32:24
 
 """
 Basic DESI Driver for Prototyping
@@ -167,7 +167,7 @@ def performS4(channel):
       print(state)
 def performStart(channel):
    print("start")
-   print(channel)
+   print(GR_START)
    GPIO.output(GR_START, GPIO.LOW)
    time.sleep(0.1)
    GPIO.output(GR_START, GPIO.HIGH)
