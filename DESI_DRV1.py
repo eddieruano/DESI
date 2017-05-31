@@ -2,7 +2,7 @@
 # @Author: Eddie Ruano
 # @Date:   2017-05-01 05:14:54
 # @Last Modified by:   Eddie Ruano
-# @Last Modified time: 2017-05-31 09:14:12
+# @Last Modified time: 2017-05-31 12:28:13
 
 """
 Basic DESI Driver for Prototyping
@@ -36,7 +36,7 @@ GR_ALEXA = 21
 # #BOUNCE IN MS# #
 bounceTime = 800
 # #STATE# #
-state = "Startup"
+state = "Speed0"
 
 ### MAIN PROGRAM START ###
 def main():
@@ -88,9 +88,9 @@ def performS1(channel):
       time.sleep(0.1)
       GPIO.output(GR_01, GPIO.HIGH)
       time.sleep(0.1)
-      GPIO.output(GR_01, GPIO.LOW)
+      GPIO.output(GR_05, GPIO.LOW)
       time.sleep(0.1)
-      GPIO.output(GR_01, GPIO.HIGH)
+      GPIO.output(GR_05, GPIO.HIGH)
       time.sleep(0.1)
       #enter
       GPIO.output(GR_ENTER, GPIO.LOW)
@@ -108,9 +108,9 @@ def performS2(channel):
       time.sleep(0.1)
       GPIO.output(GR_02, GPIO.HIGH)
       time.sleep(0.1)
-      GPIO.output(GR_02, GPIO.LOW)
+      GPIO.output(GR_05, GPIO.LOW)
       time.sleep(0.1)
-      GPIO.output(GR_02, GPIO.HIGH)
+      GPIO.output(GR_05, GPIO.HIGH)
       time.sleep(0.1)
       #enter
       GPIO.output(GR_ENTER, GPIO.LOW)
@@ -129,9 +129,9 @@ def performS3(channel):
       time.sleep(0.1)
       GPIO.output(GR_03, GPIO.HIGH)
       time.sleep(0.1)
-      GPIO.output(GR_03, GPIO.LOW)
+      GPIO.output(GR_00, GPIO.LOW)
       time.sleep(0.1)
-      GPIO.output(GR_03, GPIO.HIGH)
+      GPIO.output(GR_00, GPIO.HIGH)
       time.sleep(0.1)
       #enter
       GPIO.output(GR_ENTER, GPIO.LOW)
@@ -146,13 +146,13 @@ def performS4(channel):
    global state
    if state != "Speed0":
       # Trigger 1 twice
+      GPIO.output(GR_03, GPIO.LOW)
+      time.sleep(0.1)
+      GPIO.output(GR_03, GPIO.HIGH)
+      time.sleep(0.1)
       GPIO.output(GR_05, GPIO.LOW)
       time.sleep(0.1)
       GPIO.output(GR_05, GPIO.HIGH)
-      time.sleep(0.1)
-      GPIO.output(GR_00, GPIO.LOW)
-      time.sleep(0.1)
-      GPIO.output(GR_00, GPIO.HIGH)
       time.sleep(0.1)
       #enter
       GPIO.output(GR_ENTER, GPIO.LOW)
@@ -160,10 +160,10 @@ def performS4(channel):
       GPIO.output(GR_ENTER, GPIO.HIGH)
       time.sleep(0.1)
       #alexa
-      GPIO.output(GR_ALEXA, GPIO.LOW)
-      time.sleep(0.2)
-      GPIO.output(GR_ALEXA, GPIO.HIGH)
-      time.sleep(0.2)
+      #GPIO.output(GR_ALEXA, GPIO.LOW)
+      #time.sleep(0.2)
+      #GPIO.output(GR_ALEXA, GPIO.HIGH)
+      #time.sleep(0.2)
       global state
       state = "Speed4"
       print(state)
