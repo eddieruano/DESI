@@ -2,7 +2,7 @@
 # @Author: Eddie Ruano
 # @Date:   2017-05-01 05:14:54
 # @Last Modified by:   Eddie Ruano
-# @Last Modified time: 2017-05-31 09:09:38
+# @Last Modified time: 2017-05-31 09:13:31
 
 """
 Basic DESI Driver for Prototyping
@@ -31,7 +31,7 @@ GR_01 = 25
 GR_02 = 8
 GR_03 = 7
 GR_04 = 12
-GR_05 = 12
+GR_05 = 16
 GR_ALEXA = 21
 # #BOUNCE IN MS# #
 bounceTime = 800
@@ -217,7 +217,6 @@ def initializeRelay(start, off, pause, enter, k0, k1, k2, k3, k5, alexa):
    GPIO.output(k5, GPIO.HIGH)
    GPIO.output(alexa, GPIO.HIGH)
    print("Relays Complete.\n")
-
 ###MAIN CALL ###
 if __name__ == "__main__":
    main()
