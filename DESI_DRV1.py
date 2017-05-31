@@ -2,7 +2,7 @@
 # @Author: Eddie Ruano
 # @Date:   2017-05-01 05:14:54
 # @Last Modified by:   Eddie Ruano
-# @Last Modified time: 2017-05-31 13:21:58
+# @Last Modified time: 2017-05-31 13:41:13
 
 """
 Basic DESI Driver for Prototyping
@@ -10,6 +10,10 @@ Basic DESI Driver for Prototyping
 import sys
 import RPi.GPIO as GPIO
 import time
+# SnowBoy
+import snowboydecoder
+import sys
+import signal
 #import Adafruit_MPR121.MPR121 as MPR121
 # #Buttons# #
 G_INSTART = 9
@@ -37,7 +41,6 @@ GR_ALEXA = 21
 bounceTime = 800
 # #STATE# #
 state = "Startup"
-
 ### MAIN PROGRAM START ###
 def main():
    GPIO.setmode(GPIO.BCM)
@@ -58,7 +61,7 @@ def main():
    print("In Main Loop:\n")
    while activeFlag:
       activeFlag = True
-      if state = "Shutdown":
+      if state == "Shutdown":
          print("Cleaning GPIO..")
          print("DESI Shutdown Complete.")
          GPIO.cleanup()
@@ -66,7 +69,7 @@ def main():
    #Should not get here
 def performS0(channel):
    global state
-   if state != "Startup":
+   if state != "Startup" and state != "Speed0":
       # Trigger 1 twice
       GPIO.output(GR_00, GPIO.LOW)
       time.sleep(0.1)
@@ -187,7 +190,7 @@ def performStart(channel):
       print("Already Started.")
 
 def performStop(channel):
-   if state == "Speed0:
+   if state == "Speed0"
       print("Shutting Down.")
       GPIO.output(GR_OFF, GPIO.LOW)
       time.sleep(0.1)
