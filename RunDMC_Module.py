@@ -15,24 +15,24 @@ def main():
     #Set Mode on GPIO Pins
     GPIO.setmode(GPIO.BCM)
     # Set up Start/Stop Button functionality
-    GPIO_START = 13
-    GPIO_STOP = 19
+    GPIO_START = 9
+    GPIO_STOP = 10
     initStopLight(GPIO_START, GPIO_STOP)
     # Set up Relay Nodes
-    POWER_RELAY = 26
-    UP_RELAY = 5
-    DOWN_RELAY = 6
-    OFF_RELAY = 27
+    POWER_RELAY = 14
+    UP_RELAY = 7
+    DOWN_RELAY = 12
+    OFF_RELAY = 15
     initRelays(POWER_RELAY, UP_RELAY, DOWN_RELAY, OFF_RELAY)
     # Speed Levels
     level1 = 10
     level2 = 30
     level3 = 40
     # Set Up Voyager 1 & 2 Proximity Sensors
-    GPIOV1_ECHO = 20
-    GPIOV1_TRIG = 21
-    GPIOV2_ECHO = 24
-    GPIOV2_TRIG = 23
+    GPIOV1_ECHO = 4
+    GPIOV1_TRIG = 17
+    GPIOV2_ECHO = 27
+    GPIOV2_TRIG = 22
     #set GPIO direction (IN / OUT)
     GPIO.setup(GPIOV1_TRIG, GPIO.OUT)
     GPIO.setup(GPIOV1_ECHO, GPIO.IN)
