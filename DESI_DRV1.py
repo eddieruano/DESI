@@ -2,7 +2,7 @@
 # @Author: Eddie Ruano
 # @Date:   2017-05-01 05:14:54
 # @Last Modified by:   Eddie Ruano
-# @Last Modified time: 2017-05-31 09:13:31
+# @Last Modified time: 2017-05-31 09:14:12
 
 """
 Basic DESI Driver for Prototyping
@@ -205,7 +205,7 @@ def initializeRelay(start, off, pause, enter, k0, k1, k2, k3, k5, alexa):
    GPIO.setup(k2, GPIO.OUT)
    GPIO.setup(k3, GPIO.OUT)
    GPIO.setup(k5, GPIO.OUT)
-   GPIO.setup(alexa, GPIO.HIGH)
+   GPIO.setup(alexa, GPIO.OUT)
    GPIO.output(start, GPIO.HIGH)
    GPIO.output(off, GPIO.HIGH)
    GPIO.output(pause, GPIO.HIGH)
