@@ -2,7 +2,7 @@
 # @Author: Eddie Ruano
 # @Date:   2017-05-01 05:14:54
 # @Last Modified by:   Eddie Ruano
-# @Last Modified time: 2017-05-31 13:41:13
+# @Last Modified time: 2017-05-31 13:47:17
 
 """
 Basic DESI Driver for Prototyping
@@ -11,9 +11,6 @@ import sys
 import RPi.GPIO as GPIO
 import time
 # SnowBoy
-import snowboydecoder
-import sys
-import signal
 #import Adafruit_MPR121.MPR121 as MPR121
 # #Buttons# #
 G_INSTART = 9
@@ -60,12 +57,14 @@ def main():
    activeFlag = True
    print("In Main Loop:\n")
    while activeFlag:
-      activeFlag = True
+      global state
       if state == "Shutdown":
          print("Cleaning GPIO..")
          print("DESI Shutdown Complete.")
          GPIO.cleanup()
          sys.exit
+      else:
+         activeFlag = True
    #Should not get here
 def performS0(channel):
    global state
