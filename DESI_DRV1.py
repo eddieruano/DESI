@@ -2,7 +2,7 @@
 # @Author: Eddie Ruano
 # @Date:   2017-05-01 05:14:54
 # @Last Modified by:   Eddie Ruano
-# @Last Modified time: 2017-05-31 12:28:13
+# @Last Modified time: 2017-05-31 12:29:51
 
 """
 Basic DESI Driver for Prototyping
@@ -144,7 +144,7 @@ def performS3(channel):
       print(state)
 def performS4(channel):
    global state
-   if state != "Speed0":
+   if state != "Speed4":
       # Trigger 1 twice
       GPIO.output(GR_03, GPIO.LOW)
       time.sleep(0.1)
