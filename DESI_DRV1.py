@@ -2,7 +2,7 @@
 # @Author: Eddie Ruano
 # @Date:   2017-05-01 05:14:54
 # @Last Modified by:   Eddie Ruano
-# @Last Modified time: 2017-05-30 19:49:25
+# @Last Modified time: 2017-05-31 09:09:38
 
 """
 Basic DESI Driver for Prototyping
@@ -32,17 +32,18 @@ GR_02 = 8
 GR_03 = 7
 GR_04 = 12
 GR_05 = 12
+GR_ALEXA = 21
 # #BOUNCE IN MS# #
-bounceTime = 1000
+bounceTime = 800
 # #STATE# #
-state = "SpeedA"
+state = "Startup"
 
 ### MAIN PROGRAM START ###
 def main():
    GPIO.setmode(GPIO.BCM)
    initializeButtons(G_INSTART, G_INPAUSE)
    initializeKnob(G_INSTOP, G_INSLOW, G_INMED, G_INFAST, G_INFASTER, G_INFASTEST)
-   initializeRelay(GR_START, GR_OFF, GR_PAUSE, GR_ENTER, GR_00, GR_01, GR_02, GR_03, GR_05) 
+   initializeRelay(GR_START, GR_OFF, GR_PAUSE, GR_ENTER, GR_00, GR_01, GR_02, GR_03, GR_05, GR_ALEXA) 
 
    GPIO.add_event_detect(G_INSTART, GPIO.FALLING, performStart, bounceTime)
    GPIO.add_event_detect(G_INPAUSE, GPIO.FALLING, performStop, bounceTime)
@@ -57,11 +58,7 @@ def main():
    print("In Main Loop:\n")
    while activeFlag:
       activeFlag = True
-      #MAIN_CONTACT = cap.touched() & CAP_H
-      #if !MAIN_CONTACT:
-      #   print "Slowing Down."
-      #if (state == "speed1"):
-      #elif (state == "speed2"):
+      
    #Should not get here
 def performS0(channel):
    global state
@@ -162,6 +159,11 @@ def performS4(channel):
       time.sleep(0.1)
       GPIO.output(GR_ENTER, GPIO.HIGH)
       time.sleep(0.1)
+      #alexa
+      GPIO.output(GR_ALEXA, GPIO.LOW)
+      time.sleep(0.2)
+      GPIO.output(GR_ALEXA, GPIO.HIGH)
+      time.sleep(0.2)
       global state
       state = "Speed4"
       print(state)
@@ -193,7 +195,7 @@ def initializeKnob(speed0, speed1, speed2, speed3, speed4, speed5):
    GPIO.setup(speed4, GPIO.IN, pull_up_down=GPIO.PUD_UP)
    GPIO.setup(speed5, GPIO.IN, pull_up_down=GPIO.PUD_UP)
    print("Knob Complete.\n")
-def initializeRelay(start, off, pause, enter, k0, k1, k2, k3, k5):
+def initializeRelay(start, off, pause, enter, k0, k1, k2, k3, k5, alexa):
    GPIO.setup(start, GPIO.OUT)
    GPIO.setup(off, GPIO.OUT)
    GPIO.setup(pause, GPIO.OUT)
@@ -203,6 +205,7 @@ def initializeRelay(start, off, pause, enter, k0, k1, k2, k3, k5):
    GPIO.setup(k2, GPIO.OUT)
    GPIO.setup(k3, GPIO.OUT)
    GPIO.setup(k5, GPIO.OUT)
+   GPIO.setup(alexa, GPIO.HIGH)
    GPIO.output(start, GPIO.HIGH)
    GPIO.output(off, GPIO.HIGH)
    GPIO.output(pause, GPIO.HIGH)
@@ -212,6 +215,7 @@ def initializeRelay(start, off, pause, enter, k0, k1, k2, k3, k5):
    GPIO.output(k2, GPIO.HIGH)
    GPIO.output(k3, GPIO.HIGH)
    GPIO.output(k5, GPIO.HIGH)
+   GPIO.output(alexa, GPIO.HIGH)
    print("Relays Complete.\n")
 
 ###MAIN CALL ###
