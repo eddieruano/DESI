@@ -2,7 +2,7 @@
 # @Author: Eddie Ruano
 # @Date:   2017-05-01 05:14:54
 # @Last Modified by:   Eddie Ruano
-# @Last Modified time: 2017-05-30 16:21:13
+# @Last Modified time: 2017-05-30 18:00:24
 
 """
 Basic DESI Driver for Prototyping
@@ -12,8 +12,8 @@ import RPi.GPIO as GPIO
 import time
 #import Adafruit_MPR121.MPR121 as MPR121
 # #Buttons# #
-G_INSTART = 10
-G_INPAUSE= 9
+G_INSTART = 9
+G_INPAUSE= 10
 G_INSTOP = 11
 G_INSLOW = 5
 G_INMED = 6
@@ -175,7 +175,6 @@ def performStart(channel):
    time.sleep(0.1)
    GPIO.output(GR_ENTER, GPIO.HIGH)
    time.sleep(0.1)
-
 def performStop(channel):
    print("stop")
    GPIO.output(GR_PAUSE, GPIO.LOW)
